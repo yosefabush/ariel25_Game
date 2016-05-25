@@ -29,7 +29,7 @@
 	
 </head>
 
-<body id="page-top" class="index">
+<body id="page-top" class="index" onload="onLoading()">
 
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top">
@@ -81,9 +81,9 @@
 			
 			<div class="row">
 			<div class="col-lg-2 col-lg-offset-5">
-			<label id="question-area">
+			<header id="question-area">
 			
-			</label>
+			</header>
 			
 			</div>
 			</div>
@@ -95,41 +95,25 @@
                 <table>
 				<tr>
 				<td id="new-cell" >
-				<input type="button" id="input1" value="תשובה1" onclick=""/>
+				<input type="button" id="input1" value="תשובה1" onclick="saveQuestion(this.value)"/>
 				</td>
 				<td id="new-cell" > 
-				<input type="button" id="input2" value="תשובה2" onclick="" />	
+				<input type="button" id="input2" value="תשובה2" onclick="saveQuestion(this.value)" />	
 				</td>	
 				</tr>
 				
 				
 				<tr>
 				<td id="new-cell" >  
-				<input type="button" id="input3" value="תשובה3" onclick=""/>
+				<input type="button" id="input3" value="תשובה3" onclick="saveQuestion(this.value)"/>
 				</td>
 				<td id="new-cell">    
-				<input type="button" id="input4" value="תשובה4" onclick="" />
+				<input type="button" id="input4" value="תשובה4" onclick="saveQuestion(this.value)" />
 				</td  >
 				</tr>
 				</table>
 				</div>
             </div>
-			
-			<!-- Player Details -->
-			 <div class="row">
-			<div class="col-lg-2 col-lg-offset-5">
-			
-			<label id=playerName></label>
-			</br>
-			<label id=playerRight></label>
-			</br>
-			<label id=playerWrong></label>
-			</br>
-			</div>
-			</div>
-			
-			
-			
         </div>
     </section>
 
@@ -187,16 +171,17 @@
     </div>
 
     <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+    <script src="js/jquery-1.12.4.min.js"></script>
 
 	<!-- Game Script -->
 	<script src="js/game.js"></script>
+
 	
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
 
     <!-- Custom Theme JavaScript -->
-    <script src="js/freelancer.js"></script>
+
 
 </body>
 
