@@ -83,3 +83,43 @@ LoadQuestion();
 
 
     
+function getWinner(score,win,lost) {
+
+		$("#points-area").val(score);
+		$("#right-area").val(win);
+		$("#wrong-area").val(lost);
+
+}
+
+
+function requestStatus(){
+	
+	var dataArray;
+    if (localStorage.dataArray === undefined) {
+        dataArray = [];
+    } else {
+        dataArray = JSON.parse(localStorage.dataArray);
+    }
+	
+	
+	switch(status){ 
+		
+		
+		case wait:
+
+		break;
+		
+		case getQ:
+		
+		break;
+		
+		
+		case endGame:
+		
+		break;
+		
+		default:
+		break;
+	}
+	
+}
