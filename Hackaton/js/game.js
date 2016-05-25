@@ -85,7 +85,7 @@ LoadQuestion();
     
 function getWinner(name,score,win,lost) {
 
-		$("#points-area").val(score);
+		$("#winner-area").val(score);
 		$("#points-area").val(score);
 		$("#right-area").val(win);
 		$("#wrong-area").val(lost);
