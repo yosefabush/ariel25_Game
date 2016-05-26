@@ -5,8 +5,8 @@ This file send all the data from questions table (question text,image,video url,
     try{
         require_once ('db_connection.php');	
 
-        if (isset($_GET['req']) && $_GET['req'] == "getQuestions") {
-            $result = $db->query('SELECT * FROM questions')->fetchAll(PDO::FETCH_ASSOC);
+        if (isset($_GET['req']) && $_GET['req'] == "getQuestions" && isset($_GET['gameId'])) {
+            $result = $db->query("SELECT * FROM questions WHERE GameId=".$_GET['gameId'])->fetchAll(PDO::FETCH_ASSOC);
             echo(json_encode($result));
         } 
 
