@@ -1,6 +1,6 @@
 <?php
 /*
-This file send all the data from questions table (question text,image,video url,answer1,answer2,answer3,answer4,correct answer number)
+This file will set the user Answer
 */
   try{
         require_once ('db_connection.php');	

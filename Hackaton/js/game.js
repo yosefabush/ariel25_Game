@@ -1,11 +1,11 @@
 var dataQuestion; 
 var index;//index of question in dataQuestion
 var flag;//interval stopper
-var gameId=1; // for testing purposes (PIN GAME will be updated here)
-var seconds = 0.00; //timing of answer (timestamp)
+var gameId=1000; // for testing purposes (PIN GAME will be updated here)
+var seconds = 0; //timing of answer (timestamp)
 var timer; // hold the timer function
 var user;
-
+var userId = 9;
 
 // to hold the user's information from login screen (Constructor for USER)
 function User(UserId, QuestionId, Answer, Time, IsCorrectAnswer) { 	
@@ -24,7 +24,7 @@ function LoadQuestion() {
 	$("input4").empty(); 
     
        var trHtml = "";
-        trHtml = "<h>" + data[index].Text+ "</h>";
+        trHtml = "<h>" + dataQuestion[index].Text+ "</h>";
         
     $("#question-area").append(trHtml);
 		$("#input1").val(dataQuestion[index].Answer1);
@@ -32,7 +32,7 @@ function LoadQuestion() {
 		$("#input3").val(dataQuestion[index].Answer3);
 		$("#input4").val(dataQuestion[index].Answer4);
 		
-    flag=setInterval(checkServer(), 5000);
+    // flag=setInterval(checkServer(), 5000);
 }
 
 function checkServer(){
@@ -52,27 +52,37 @@ function checkServer(){
 		   window.location("winner.html");
 		}
     }).fail(function(data) {
-            alert("fail:" + data);
+            console.error("fail:" + data);
     }).always(function(data) {
-            alert("always:" + data);
+            console.log("always:" + data);
     });
 }
 
-function setAnswer(answerUser) {
 
+function setAnswer(answerUser) {
+    // user.Id;
+    // dataQuestion[index].Id;
+    // answerUser
+    // time
+    // dataQuestion[index].CorrectAnswer == answerUser
+    
+    var s = "setAnswer.php?req=setAnswer" + 
+	  "&UserId=" + user.Id + 
+	  "&QuestionId=" + dataQuestion[index].Id + 
+	  "&Answer=" + answerUser + 
+	  "&Time=" + seconds + 
+	  "&IsCorrectAnswer=" + (dataQuestion[index].CorrectAnswer == answerUser);
+    
+    console.log(s);
+    
 	// updaing the database (insert and update)
-	  var result = $.ajax("setAnswer.php?req=setAnswer" + 
-	  "&UserId=" + user.UserId + 
-	  "&QuestionId=" + user.QuestionId + 
-	  "&Answer=" + user.Answer + 
-	  "&Time=" + user.Time + 
-	  "&IsCorrectAnswer=" + user.IsCorrectAnswer).done(function(data) {
+	  var result = $.ajax(s).done(function(data) {
 	  
 	  
     }).fail(function(data) {
 	
 	//debug purposes
-       alert("fail");
+       console.error("fail");
     });
 }
 
@@ -89,21 +99,38 @@ function onLoading()
 	//TODO: Need function here to load the information from the login screen
 	user = new User(1, 1, 1, 0, false);
 	
-	// Populate the page with questions
-   dataQuestion = $.ajax("getQuestions.php?req=getQuestions&gameId=" + gameId).done(function(data) {
-            alert("good:" + data);
+    $.ajax("getGameInfo.php?req=getUser&userId=" + userId).done(function(data) {
+        user = $.parseJSON(data);
+        console.log(user);
+        
+        
+
+        
+            //alert("good:" + data);
     }).fail(function(data) {
-            alert("fail:" + data);
+            console.error("fail:" + data);
     }).always(function(data) {
-            alert("always:" + data);
+            console.log("always:" + data);
+    });
+     
+    
+    
+	// Populate the page with questions
+    $.ajax("getQuestions.php?req=getQuestions&gameId=" + gameId).done(function(data) {
+            index=0;  
+            dataQuestion = $.parseJSON(data);
+        LoadQuestion();
+            console.log("good:" + data);
+    }).fail(function(data) {
+            console.error("fail:" + data);
+    }).always(function(data) {
+            console.log("always:" + data);
     });
      
 	 // TODO: function to get the initial value of gameId
 	
 	
-    index=0;  
-
-    LoadQuestion();
+    
 }
 
 // timer functions
