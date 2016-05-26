@@ -32,7 +32,7 @@ function checkServer(){
    $.ajax({
        type:"POST",
        url: "getCurrentQuestion.php",
-       data:{dataQuestion.GameId,}),
+       data:{dataQuestion.GameId}),
       success:function(data){
        if(data!=dataQuestion[index].Number)
        {
