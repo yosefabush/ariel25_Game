@@ -1,19 +1,20 @@
  var firsttime=0;  
 var index=0;
 var ans;
-function LoadQuestion() {
-    var flag=false;
+
+var flag=false;
 
 var q="Where is our university located?";
 var answer=[];
-a var firsttime=0;  
+var firsttime=0;  
 var index=0;
 var ans;
+
 function LoadQuestion() {
     var flag=false;
 
 
-var answer=[];
+    var answer=[];
 
     $("question-area").empty(); 
 	$("input1").empty(); 
@@ -58,36 +59,39 @@ function saveQuestion(answerUser) {
         localStorage.answer = JSON.stringify(false);
     
 
-   
-    
-    
 
     
     // save to storage
 
-    onload();
+   LoadQuestion();
 
 }
 
+    
+$(document).ready(function() {
+    onLoading();
+})   ;
         
 function onLoading()
 {
-    var data = [{question:"Where is our university located?",answer:"Ariel", op1:"Tel-Aviv", op2:"Haifa", op3:"Ariel", op4: "Eilat"},
-    {question:"Where is our university 1?",answer:"Ariel", op1:"Tel-Aviv", op2:"Haifa", op3:"Ariel", op4: "Eilat"},
-    {question:"Where is our university 2?",answer:"Ariel", op1:"Tel-Aviv", op2:"Haifa", op3:"Ariel", op4: "Eilat"},
-    {question:"Where is our university 3?",answer:"Ariel", op1:"Tel-Aviv", op2:"Haifa", op3:"Ariel", op4: "Eilat"}];
+    alert ("onLoading");
+    var data = $.ajax("getQuestions.php?req=getQuestions").done(function(data) {
+            alert("good:" + data);
+    }).fail(function(data) {
+            alert("fail:" + data);
+    }).always(function(data) {
+            alert("always:" + data);
+    });
+     
 
-    
 
-if(firsttime==0){
-    localStorage.dataArray = JSON.stringify(data);
+    if(firsttime==0){
+        localStorage.dataArray = JSON.stringify(data);
 
-    firsttime=1;
-LoadQuestion();
-
-}
+        firsttime=1;
+    } 
     LoadQuestion();
-}   
+       
 
 
     
@@ -99,6 +103,8 @@ LoadQuestion();
 	$("input4").empty(); 
     
     var data;
+    
+    // TODO: GET dat from server
 
     if (localStorage.dataArray === undefined) {
         dat = [];
@@ -123,49 +129,6 @@ LoadQuestion();
             
 
 }
-
-function saveQuestion(answerUser) {
-    var userAnswer = {};
-
-    userAnswer.answer =answerUser;
-    
-    if(answerUser==dat[index].answer)
-        localStorage.answer = JSON.stringify(true);
-    else
-        localStorage.answer = JSON.stringify(false);
-    
-
-      index++;
-    
-    
-
-    
-    // save to storage
-
-    onload();
-
-}
-
-        
-function onLoading()
-{
-    var data = [{question:"Where is our university located?",answer:"Ariel", op1:"Tel-Aviv", op2:"Haifa", op3:"Ariel", op4: "Eilat"},
-    {question:"Where is our university 1?",answer:"Ariel", op1:"Tel-Aviv", op2:"Haifa", op3:"Ariel", op4: "Eilat"},
-    {question:"Where is our university 2?",answer:"Ariel", op1:"Tel-Aviv", op2:"Haifa", op3:"Ariel", op4: "Eilat"},
-    {question:"Where is our university 3?",answer:"Ariel", op1:"Tel-Aviv", op2:"Haifa", op3:"Ariel", op4: "Eilat"}];
-
-    
-
-if(firsttime==0){
-    localStorage.dataArray = JSON.stringify(data);
-
-    firsttime=1;
-LoadQuestion();
-
-}
-    LoadQuestion();
-}   
-
 
     
 function getWinner(name,score,win,lost) {
