@@ -9,37 +9,116 @@ box-sizing:border-box;
 
 .header{
 	width:100%;
-	height:50px;
-	background-color:fff#;
+	height:100px;
+	background-image:url("../image/Header.png");
+    border-bottom:solid 4px #000; 
+}
+#wrapper{
+ width: 100%;
+ height:750px;
+ background-image: url("../image/background.png");
+ padding-right: 43px;
+ padding-top: 18px;
+ padding-left: 54px;
+}
+.video{
+   height: 300px; 
 }
 
 .center{
 	width:100%;
-	height:350px;
-	background-color:gray;
+	height:450px;
 	padding-top:20px;
 	padding-right:20px;
-}
 
-.center .button{
-	background-color:blue;
+}
+.video{
+    
+    
+}
+.video .button{
+	
 	width:60px;
 	height:40px;
 	float:right;
 }
+button, html input[type=button], input[type=reset], input[type=submit] {
+    -webkit-appearance: button;
+    cursor: pointer;
+    background-color: #3fc7f3;
+    width: 80px;
+    height: 40px;
+    -webkit-box-shadow: 9px 7px 13px 0px rgba(0,0,0,0.81);
+    -moz-box-shadow: 9px 7px 13px 0px rgba(0,0,0,0.81);
+    box-shadow: 9px 7px 13px 0px rgba(0,0,0,0.81);
+    border-radius: 11px;
+    border: none;
+}
+
+input[type="button"]:hover{
+  
+transform: skew(-10deg);
+    opacity: 20%;
+
+}
+
+
+img {    
+   
+ width: 500px;
+    height: 120px;
+    
+}
 
 .answers{
-	background-color:fff#;
 	width:100%;
+    
 }
 
 .answer{
-	width:565px;
-	height:80px;
-	background-color:red;
+	width:500px;
+	height:160px;
+  
+
 }
 
-.left{
+.a1{
+    background-image: url("../image/card2.png");
+    background-size: 83% auto;
+    background-repeat: no-repeat;
+    padding-top:70px;
+    padding-left: 50px;
+}
+
+
+.a2{
+    background-image: url("../image/card1.png");
+    background-size: 83% auto;
+    background-repeat: no-repeat;
+        padding-left: 69px;
+    padding-top: 64px;
+}
+
+.a3{
+    background-image: url("../image/card4.png");
+    background-size: 83% auto;
+    background-repeat: no-repeat; 
+         padding-top: 57px;
+    padding-left: 30px;
+}
+.a4{
+    background-image: url("../image/card3.png");
+    background-size: 83% auto;
+    background-repeat: no-repeat;
+      padding-left: 42px;
+    padding-top: 50px;
+   
+}
+.down{
+    padding-left: 20px;
+}
+
+/*.left{
 	margin-right:5px;
 }
 .right{
@@ -52,5 +131,14 @@ box-sizing:border-box;
 
 .down{
 	margin-top:5px;
+}*/
+
+.footer{
+    width: 100%;
+    height: 100px;
+    background-image: url("../image/newheader.png");
+    border-top: solid 4px #000;
+        background-size: 100% auto;
+    background-repeat: no-repeat;
 }
 

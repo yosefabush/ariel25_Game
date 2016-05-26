@@ -17,9 +17,31 @@ This file send all the data from questions table (question text,image,video url,
                 echo "0";
             } else {
                 echo "1";
-            }
-            
+            }            
         } 
+        
+        if (isset($_GET['req']) && $_GET['req'] == "getWaitingScreenData" && isset($_GET['gameId'])) {
+            $sql = "SELECT * FROM games WHERE Id=".$_GET['gameId'];
+            $resultGames = $db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+            
+            
+            $resultTotalUsers = $db->query("SELECT count(*) as total FROM users WHERE CurrentGame=".$_GET['gameId'])->fetchAll(PDO::FETCH_ASSOC);
+            
+            
+            $newUsers = $db->query("SELECT NickName, FirstName FROM users
+                                    WHERE CurrentGame=".$_GET['gameId']."
+                                    ORDER BY CurrentGame_loginTime DESC
+                                    LIMIT 18")->fetchAll(PDO::FETCH_ASSOC);;
+            
+            $ret = new stdClass();
+            $ret->totalUsers = $resultTotalUsers[0]["total"];
+            $ret->game = $resultGames[0];
+            $ret->newUsers = $newUsers;
+            
+            echo(json_encode($ret));
+        } 
+        
+        
 
     } catch (PDOException $e) {
         echo $e->getMessage();
