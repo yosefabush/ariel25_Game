@@ -1,8 +1,8 @@
+
 var dataQuestion; 
 var index;//index of question in dataQuestion
 var flag;//interval stopper
 var gameId=1; // for testing purposes (PIN GAME will be updated here)
-var seconds = 0;
 
 
 function LoadQuestion() {
