@@ -19,7 +19,7 @@ function LoadQuestion() {
         trHtml = "<h>" + data[index].Text+ "</h>";
         
     $("#question-area").append(trHtml);
-		$("#input1").val(dataQuestion[index].Answer1));
+		$("#input1").val(dataQuestion[index].Answer1);
 		$("#input2").val(dataQuestion[index].Answer2);
 		$("#input3").val(dataQuestion[index].Answer3);
 		$("#input4").val(dataQuestion[index].Answer4);
