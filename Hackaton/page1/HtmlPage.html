@@ -16,29 +16,38 @@
     <div class="header">
       <div id="q">question</div>
 	</div>
-    <div class = "center">
+ <div id="wrapper">
+      <div class="video">
         <div class="button">
-		   <input type="button" value="Skip" onclick="loadNextQuestion()" >
-		</div>
+            <a> <input type="button" value="Skip" onclick="loadNextQuestion()" ></a>
+            </div>
+          <img id="image" src="" >
+      </div>
+      <div class = "center">
+              <div class="answers">
+	       <div class="row">
+	           <div class = "answer a1 col-md-6">
+                   <span id="a1">answer1</span>
+               </div>
+	           <div class="answer  a2 col-md-6">
+			       <span id="a2">answer2</span>
+	           </div>
+           </div>
+		   <div class="row down">
+		       <div class = "answer a3 col-md-6">
+	               <span id="a3">answer3</span>
+              </div>
+	           <div class="answer a4 col-md-6">
+			       <span id="a4">answer4</span>
+	           </div>
+		   </div>
+	   </div>
      </div>	
-     <div class="answers">
-	     <div class="row">
-	         <div class = "answer up left a1 col-md-6">
-	             <span id="a1">answer1</span>
-             </div>
-	         <div class="answer up right a2 col-md-6">
-			     <span id="a2">answer2</span>
-	         </div>
-         </div>
-		 <div class="row">
-		     <div class = "answer down left a3 col-md-6">
-	             <span id="a3">answer3</span>
-             </div>
-	         <div class="answer down right a4 col-md-6">
-			     <span id="a4">answer4</span>
-	         </div>
-		 </div>
-	 </div>
+ </div>
+    <div class="footer">
+        זכויות
+    </div>
+ 
 </div>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <script src="js/JavaScript.js"></script>
