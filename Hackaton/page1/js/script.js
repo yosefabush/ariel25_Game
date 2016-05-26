@@ -4,7 +4,7 @@ var arr=[];
 var gameId = 1000;
 
 function onInit() {
-    // TODO:
+    // LOAD ALL QUESTIONS
     $.get( "../getQuestions.php?req=getQuestions&gameId=" + gameId, function( data ) {
        arr = $.parseJSON(data);
        console.log('arr:' + arr);
@@ -27,6 +27,14 @@ function showCurrentQuestion() {
 function loadNextQuestion() {
     i++;
     showCurrentQuestion();
+    
+    $.get( "../getQuestions.php?req=setGameQuestion&gameId=" + gameId + "&questionId=" + i, function( data ) {
+        if (data == "1") // ok
+            console.log("call to setGameQuestion OK");
+        else
+            console.log("call to setGameQuestion ERROR");
+    });
+    
 }
 
 $(document).ready(onInit);
