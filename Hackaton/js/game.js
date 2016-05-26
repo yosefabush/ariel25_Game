@@ -2,7 +2,7 @@
   var dataQuestion; 
 var index;//index of question in dataQuestion
 var flag;//interval stopper
-var gameId=1;
+var gameId=1; // for testing purposes
 
 
 function LoadQuestion() {
@@ -81,7 +81,7 @@ function onLoading()
 {
    
    
-   dataQuestion = $.ajax("getQuestions.php?req=getQuestions&+"gameId).done(function(data) {
+   dataQuestion = $.ajax("getQuestions.php?req=getQuestions&gameId=" + gameId).done(function(data) {
             alert("good:" + data);
     }).fail(function(data) {
             alert("fail:" + data);
