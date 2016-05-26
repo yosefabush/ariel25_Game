@@ -34,7 +34,7 @@ function checkServer(){
        url: "getCurrentQuestion.php",
        data:{dataQuestion.GameId},
       success:function(data){
-       if(data!=dataQuestion[index].Number)
+       if(data!=dataQuestion[index].Id)
        {
        flag=null;
        if(data.Status==0){
@@ -90,7 +90,7 @@ function onLoading()
      
 
 
-      index=0;  
+      index=dataQuestion[0];  
 
     LoadQuestion();    
 
