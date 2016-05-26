@@ -1,8 +1,8 @@
-
 var dataQuestion; 
 var index;//index of question in dataQuestion
 var flag;//interval stopper
 var gameId=1; // for testing purposes (PIN GAME will be updated here)
+var seconds = 0;
 
 
 function LoadQuestion() {
@@ -46,15 +46,19 @@ function checkServer(){
     });
 }
 
-function saveQuestion(answerUser) {
+function setAnswer(answerUser) {
 
 		// updaing the database (inserting and 
-	  var result = $.ajax("setAnswer.php?req=getQuestions&gameId=" + gameId).done(function(data) {
-            alert("good:" + data);
+	  var result = $.ajax("setAnswer.php?req=setAnswer&gameId=" + gameId).done(function(data) {
+	  /*
+	  * UserId
+	  * QuestionId
+	  * Answer
+	  * Time
+	  * IsCorrectAnswer
+	  */
     }).fail(function(data) {
-            alert("fail:" + data);
-    }).always(function(data) {
-            alert("always:" + data);
+            
     });
 }
 
