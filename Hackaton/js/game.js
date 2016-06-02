@@ -27,7 +27,7 @@ function LoadQuestion() {
     $("#input3").empty(); 
     $("#input4").empty(); 
 
-    if (dataQuestion.length > index) {
+    if (dataQuestion != undefined && dataQuestion.length > index) {
        var trHtml = "";
         trHtml = "<h>" + dataQuestion[index].Text+ "</h>";
         
@@ -141,3 +141,5 @@ function onLoading()
 function setSeconds(){
 	seconds += 1;
 }
+
+setInterval(checkServer, 5000);
