@@ -1,4 +1,4 @@
-var gameId = 1000;
+var gameId = localStorage.gameId;
 var gameData;
 
 // dom html pointers

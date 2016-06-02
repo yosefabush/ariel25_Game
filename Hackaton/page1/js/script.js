@@ -1,7 +1,9 @@
 var i=0;
 var arr=[];
 
-var gameId = 1000;
+var gameId = localStorage.gameId;
+
+setInterval(checkServer(), 1000);
 
 function onInit() {
     // LOAD ALL QUESTIONS
@@ -9,6 +11,8 @@ function onInit() {
        arr = $.parseJSON(data);
        console.log('arr:' + arr);
        showCurrentQuestion();
+        
+        
     });     
 }
 

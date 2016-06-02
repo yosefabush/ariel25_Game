@@ -1,0 +1,79 @@
+diff a/Hackaton/js/game.js b/Hackaton/js/game.js	(rejected hunks)
+@@ -1,51 +1,55 @@
+ var dataQuestion; 
+ var index;//index of question in dataQuestion
+-var flag;//interval stopper
+-var gameId=1000; // for testing purposes (PIN GAME will be updated here)
+-var seconds = 0; //timing of answer (timestamp)
+-var timer; // hold the timer function
+-var user;
++//var flag;//interval stopper
++var gameId = 1000; // for testing purposes (PIN GAME will be updated here)
++//var seconds = 0; //timing of answer (timestamp)
++//var timer; // hold the timer function
++//var user;
+ var userId = 9;
+ 
+-// to hold the user's information from login screen (Constructor for USER)
+-function User(UserId, QuestionId, Answer, Time, IsCorrectAnswer) { 	
++/* to hold the user's information from login screen (Constructor for USER)
++function User(UserId, QuestionId, Answer, Time, IsCorrectAnswer) 
++{ 	
+ 	this.UserId = UserId;
+ 	this.QuestionId = QuestionId;
+ 	this.Answer = Answer;
+ 	this.Time = Time;
+ 	this.IsCorrectAnswer = IsCorrectAnswer;
+ }
++*/
+ 
+ function LoadQuestion() {
+-    $("question-area").empty(); 
+-	$("input1").empty(); 
+-	$("input2").empty(); 
+-	$("input3").empty(); 
+-	$("input4").empty(); 
++
++	// empty current question
++    $("#question-area").empty(); 
++	$("#input1").empty(); 
++	$("#input2").empty(); 
++	$("#input3").empty(); 
++	$("#input4").empty(); 
+     
+-       var trHtml = "";
+-        trHtml = "<h>" + dataQuestion[index].Text+ "</h>";
++   var tableRowHtml = "";
++   tableRowHtml = "<h1>" + dataQuestion[index].Text + "</h1>";
+         
+     $("#question-area").append(trHtml);
+-		$("#input1").val(dataQuestion[index].Answer1);
+-		$("#input2").val(dataQuestion[index].Answer2);
+-		$("#input3").val(dataQuestion[index].Answer3);
+-		$("#input4").val(dataQuestion[index].Answer4);
++	$("#input1").val(dataQuestion[index].Answer1);
++	$("#input2").val(dataQuestion[index].Answer2);
++	$("#input3").val(dataQuestion[index].Answer3);
++	$("#input4").val(dataQuestion[index].Answer4);
+ 		
+     // flag=setInterval(checkServer(), 5000);
+ }
+ 
+ function checkServer(){
+ 
+-	// Check with the server wheter to advance to the next question
++	// Check with the server whether to advance to the next question
+      dataQuestion = $.ajax("getGameInfo.php?req=getGameInfo&gameId=" + gameId).done(function(data) {
+-	  gameId = data.GameId; 
+-	  if(data!=dataQuestion[index].Id)
++	 gameId = data.GameId; 
++	 if(data!=dataQuestion[index].Id)
+        {
+ 		   flag=null;
+ 		   if(data.Status==0){ //game is active
+ 		   index++;
+-		   timer = null;
++		   //timer = null;
+ 		   LoadQuestion();
+ 			}
+ 		   else // need to check if won or not
