@@ -17,7 +17,7 @@ function onInit() {
     
     // call loop every 5 seconds
     setInterval(loop, 5000);
-    
+    $("#header_name").text(gameName);// not working. why is that?
     $("#startGame").click(function() {
        window.location.replace('page1/HtmlPage.html'); 
     });
