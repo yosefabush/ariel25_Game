@@ -11,7 +11,7 @@ var userId = localStorage.generalId; // From registration
 
 console.log('in gamejs: userId='+userId+" , gameId="+gameId);
 
-// to hold the user's information from login screen (Constructor for USER)
+/* to hold the user's information from login screen (Constructor for USER)
 function User(UserId, QuestionId, Answer, Time, IsCorrectAnswer) { 	
 	this.UserId = UserId;
 	this.QuestionId = QuestionId;
@@ -19,14 +19,18 @@ function User(UserId, QuestionId, Answer, Time, IsCorrectAnswer) {
 	this.Time = Time;
 	this.IsCorrectAnswer = IsCorrectAnswer;
 }
+*/
 
 function LoadQuestion() {
+    
+    //Empty question text
     $("#question-area").empty(); 
     $("#input1").empty(); 
     $("#input2").empty(); 
     $("#input3").empty(); 
     $("#input4").empty(); 
-
+    
+    // repopulate it with the new question
     if (dataQuestion != undefined && dataQuestion.length > index) {
        var trHtml = "";
         trHtml = "<h>" + dataQuestion[index].Text+ "</h>";
@@ -52,7 +56,7 @@ function checkServer(){
 		   if(data[0].Status==0){ //game is active
                index = data[0].Question;               
                LoadQuestion();
-               seconds = 0;
+               seconds = 0; 
 			}
 		   else // need to check if won or not
 		      window.location("winner.html");
@@ -99,47 +103,26 @@ $(document).ready(function() {
         
 function onLoading()
 {
-	//set timer
-	timer = setInterval(setSeconds(), 200);
-	
-	//TODO: Need function here to load the information from the login screen
-	user = new User(1, 1, 1, 0, false);
-	
-    /*
-    $.ajax("getGameInfo.php?req=getUser&userId=" + userId).done(function(data) {
-        user = $.parseJSON(data);
-        console.log(user);
-        
-            //alert("good:" + data);
-    }).fail(function(data) {
-            console.error("fail:" + data);
-    }).always(function(data) {
-            console.log("always:" + data);
-    });
-     */
-    
-    
 	// Populate the page with questions
     $.ajax("getQuestions.php?req=getQuestions&gameId=" + gameId).done(function(data) {
             index=0;  
             dataQuestion = $.parseJSON(data);
-        LoadQuestion();
+            LoadQuestion();
             console.log("good:" + data);
     }).fail(function(data) {
             console.error("fail:" + data);
     }).always(function(data) {
             console.log("always:" + data);
     });
-     
-	 // TODO: function to get the initial value of gameId
-	
-	
     
+    //set timer
+	timer = setInterval(setSeconds(), 200);
 }
 
 // timer functions
 function setSeconds(){
-	seconds += 1;
+	seconds += 0.2;
 }
 
+/* check if the server changed the status of the game or moved to the next question */
 setInterval(checkServer, 5000);
