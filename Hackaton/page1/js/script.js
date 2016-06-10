@@ -3,7 +3,7 @@ var arr=[];
 
 var gameId = localStorage.gameId;
 
-setInterval(checkServer(), 1000);
+//setInterval(checkServer(), 1000);
 
 function onInit() {
     // LOAD ALL QUESTIONS
