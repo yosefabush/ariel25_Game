@@ -1,4 +1,5 @@
-var gameId = localStorage.gameId;
+var gameId = 1000; 
+//insert after testing is done ? localStorage.gameId;
 var gameData;
 
 // dom html pointers
@@ -17,7 +18,7 @@ function onInit() {
     
     // call loop every 5 seconds
     setInterval(loop, 5000);
-    $("#header_name").text(gameName);// not working. why is that?
+    
     $("#startGame").click(function() {
        window.location.replace('page1/HtmlPage.html'); 
     });
@@ -42,12 +43,27 @@ function show() {
     gamePin.text(gameData.game.Id);
     totalUsers.text(gameData.totalUsers);
     
+    newUsersList.empty(); 
+    $.each(gameData.newUsers, function(i, item) {
+		var liHTML = '';
+        liHTML += '<div class="col-xs-4 col-sm-4 col-md-4 ovalShapeJS textSizeJS">' + item.NickName + '</div>';
+        newUsersList.append(liHTML);
+
+    });   
+}
+
+/* old function show
+function show() {
+    gameName.text(gameData.game.Title);
+    gamePin.text(gameData.game.Id);
+    totalUsers.text(gameData.totalUsers);
+    
     newUsersList.empty();    
     $.each(gameData.newUsers, function(i, item) {
         var liHTML = '';
         liHTML += '<li>' + item.NickName + '</li>';
         newUsersList.append(liHTML);
     });        
-}
+} */
 
 $(document).ready(onInit);

@@ -1,16 +1,27 @@
 html{
-
+    margin: 0;
+    padding: 0;
+    height: 100%; 
 }
 
 body{
-    background-image: url("../../img/backImage.png");
+    background-image: url("../../images/backImage.png");
     background-repeat: no-repeat;
     background-size: cover;
-    direction: rtl;
+	background-position: center center;
+	  background-attachment: fixed;
+
 }
 
 footer{
-
+    width:100%;
+	height: auto;
+	position:fixed;
+	bottom:0;
+	left:0;
+    margin: 0;
+    padding: 0;
+	
 }
 
 .hide{
@@ -30,7 +41,20 @@ h1 {
    text-align: center;    
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+}
+
 #headerTop{
+    background-color: #1abfdf;
+    border-bottom: 5px solid;
+    border-bottom-color: black;
+}
+
+#headerTop2
+{
+	margin:0;
     background-color: #1abfdf;
     border-bottom: 5px solid;
     border-bottom-color: black;
@@ -45,10 +69,10 @@ h1 {
     padding-top: 20px;
 }
 
-#centerBoxTxt{
-    text-align: center;
-    font-size: 30px;
-    font-family: gisha;
+.hebrew{
+	direction: rtl;
+	text-align:center;
+	margin:0 auto;
 }
 
 #WorkCheck{
@@ -62,6 +86,43 @@ h1 {
 input{
     text-align: center;
 }
+
+.ovalShapeJS{
+text-align:center;
+  background: #1abc9c;
+  width:200px;
+  height:60px;
+  line-height:60px;
+  padding:0 20px;
+  color:white;
+  border: 2px solid #999999;
+  -moz-border-radius: 50px;
+-webkit-border-radius: 50px;
+  border-radius:50%;
+  margin:20px auto;
+  position:relative;
+   margin-left:5px;
+ margin-right:5px;
+ 
+ /*IE 7 AND 8 DO NOT SUPPORT BORDER RADIUS*/
+-moz-box-shadow: 0px 0px 20px #000000;
+-webkit-box-shadow: 0px 0px 20px #000000;
+box-shadow: 0px 0px 20px #000000;
+}
+
+.onlineUsersNames{
+ margin:0 auto;
+}
+
+.textSizeJS{
+font-size: 1.5em;
+}
+
+.divResponsive {
+	width: 900px;
+	max-width: 90%;
+}
+
 
 .button {
     background-color: #4CAF50;
@@ -99,10 +160,6 @@ transform: rotate(-90deg);
     font-family: gisha;
 }
 
-#topTxt1{
-    text-align: center;
-    font-family: gisha;
-}
 input[type=checkbox]
 {
   /*
@@ -148,39 +205,4 @@ input[type=button]{
 }
 .float-right{
     float: right;
-}
-
-
-/* Game Css */
-
-
-#input1{
-
-}
-
-#input2{
-
-}
-#input3{
-
-}
-#input4{
-
-}
-
-.cards input{
-    height: 450px;
-}
-
-#question-area{
-	
-	font-size:60px;
-	 font-weight: bold;
-}
-
-.winnerdiv{
-	
-padding-top: 20px;
-padding-bottom: 20px;
-
 }
