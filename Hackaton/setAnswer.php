@@ -14,7 +14,16 @@ This file will set the user Answer
         
             $insert  = $db->exec("INSERT INTO users_answers (UserId,QuestionId,Answer,Time,IsCorrectAnswer) 
                 VALUES ('$UserId','$QuestionId','$Answer','$Time','$IsCorrectAnswer')");
-            if( $insert !== FALSE ) {
+			
+			if( $isCorrectAnswer ) {
+				$score = 10 - $Time;
+				if ( $score < 0 ) {
+					$score = 0;
+				}
+				$update = $db->exec("UPDATE users SET Score = Score + $score WHERE UserId = $UserId");
+			}
+			
+            if( $insert !== FALSE & $update !== FALSE ) {
                 echo 1;
             } else {
                 echo -1;
