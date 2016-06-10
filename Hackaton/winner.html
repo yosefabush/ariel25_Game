@@ -1,165 +1,54 @@
-
 <!DOCTYPE html>
-<html lang="en">
+
+<html>
 
 <head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Hackaton</title>
-
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/freelancer.css" rel="stylesheet">
-
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-
-	
-	
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<meta charset="utf-8"/>
+<title>GAME</title>
+<link rel="stylesheet" type="text/css" href="css\styleSheet\css.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 </head>
 
-<body id="page-top" class="index">
-
-    <nav id="tophead"class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-                <h1 id="header_name">HACKATON</h1>
+<body>
+        
+        
+<header id="headerTop" class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <h1 id="topTxt1">And the winner is...</h1>
         </div>
-    </nav>
+    </div>    
+</header>
+    <div class="row space"></div>
+    
+    
+    <div class="First winnerdiv container-fluid">
+    <div class="row"  id="centerBox">
+    <span id="text"></span>
+        <div class="main">
+             <header id="winner-area">
 
-	
-	    <!-- Winners' Frame -->
+            </header>
+            <br>
+             <header id="winner-points-area">
 
-    <section class="success" id="about">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                 
-                    <hr style="visibility:hidden;">
-                </div>
-            </div>					
-
-
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 id="wName">And the winner is...</h2>
-                    <hr class="star-light">
-                </div>
-            </div>
-			
-			<div class="row">
-			<div class="col-lg-2 col-lg-offset-5">
-			
-			<!-- Winner nickanme-->
-			<label id="winner-area">
-			
-			</label>
-			</div>
-			</div>
-			
-			<div class="row">
-			<div class="col-lg-2 col-lg-offset-5">
-	
-			<!-- Total Points -->
-			<label id="points-area">
-			</label>
-			
-			</div>
-			</div>
-			
-						<div class="row">
-			<div class="col-lg-2 col-lg-offset-5">
-	
-			<!-- Total Right -->
-			<label id="right-area">
-			</label>
-			
-			</div>
-			</div>
-			
-						<div class="row">
-			<div class="col-lg-2 col-lg-offset-5">
-	
-			<!-- Total Wrong -->
-			<label id="wrong-area">
-			</label>
-			
-			</div>
-			</div>
-			
-			
+            </header>
         </div>
-    </section>
-
-	
-	
-	
-	
-	
-	
-	
-
-    <!-- Footer -->
-    <footer class="text-center">
-        <div class="footer-above">
-            <div class="container">
-                <div class="row">
-                    <div class="footer-col col-md-4">
-                        <p>Ariel University</p>
-                    </div>
-                    <div class="footer-col col-md-4">
-                        <ul class="list-inline">
-                            <li>
-                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
-                            </li>
-                            <li>
-                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-google-plus"></i></a>
-                            </li>
-                            <li>
-                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
-                            </li>
-                            <li>
-                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-linkedin"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
         </div>
-        <div class="footer-below">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        Copyright &copy; Ariel University 2016
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
-    <div class="scroll-top page-scroll visible-xs visible-sm">
-        <a class="btn btn-primary" href="#page-top">
-            <i class="fa fa-chevron-up"></i>
-        </a>
     </div>
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-	<!-- Game Script -->
-	<script src="js/game.js"></script>
-	
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-
-    <!-- Custom Theme JavaScript -->
-    <script src="js/freelancer.js"></script>
-
+     <div class="row space"></div>
+    
+    <script src="js/game.js"></script> 
 </body>
 
+<footer class="container-fluid">
+   <div class="row">
+   <div class="bottom clearfix col-md-12" >
+      <img src="img/BottomLogo.png" class="float-left clearfix" >
+        <img src="img/HandesaimArielLogo.png" class="float-right clearfix">
+    </div>
+    </div>
+</footer>     
+    
 </html>
