@@ -33,7 +33,7 @@ function LoadQuestion() {
     // repopulate it with the new question
     if (dataQuestion != undefined && dataQuestion.length > index) {
        var trHtml = "";
-        trHtml = "<h>" + dataQuestion[index].Text+ "</h>";
+        trHtml = "<h3>" + dataQuestion[index].Text+ "</h3>";
         
         $("#question-area").append(trHtml);
 		$("#input1").val(dataQuestion[index].Answer1);
