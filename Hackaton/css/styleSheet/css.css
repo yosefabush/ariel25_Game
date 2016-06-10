@@ -165,43 +165,44 @@ input[type=button]{
 
 /* Game Css */
 
+
 #input1{
-	max-width: 220%;
-	max-height: 220%;
+	max-width: 25%;
+	max-height: auto;
 
 	
 	
 }
 
 #input2{
+max-width: 25%;
+	max-height: auto;
 
-	
-		max-width: 220%;
-	max-height: 220%;
 	
 }
 #input3{
-	
-	max-width: 220%;
-	max-height: 220%;
+	max-width: 25%;
+	max-height: auto;
+
 
 	
 	
 }
 #input4{
-	max-width: 220%;
-	max-height: 220%;
+max-width: 25%;
+	max-height: auto;
+
 
 	
 }
 
 #new-cell{
-	align:center;
+
 
 }
 #question-area{
 	
-	font-size:20px;
+	font-size:60px;
 	 font-weight: bold;
 
 }
