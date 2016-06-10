@@ -1,0 +1,207 @@
+html{
+    margin: 0;
+    padding: 0;
+    height: 100%; 
+}
+
+body{
+    background-image: url("../../img/backImage.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    direction: rtl;
+    margin: 0;
+    padding: 0;
+    height: inherit;
+}
+
+footer{
+    width:100%;
+	height:auto;
+	position:absolute;
+	bottom:0;
+	left:0;
+    margin: 0;
+    padding: 0;
+}
+
+.hide{
+    visibility: hidden;
+}
+
+/*adds space between words */
+.space{
+    padding: 2%;   
+}
+
+.Smallspace{
+    padding: 2%;   
+}
+
+h1 { 
+   text-align: center;    
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+#headerTop{
+    background-color: #1abfdf;
+    border-bottom: 5px solid;
+    border-bottom-color: black;
+}
+
+#centerBox
+{
+    background-color: #a5a598;
+    border: 5px solid;
+    border-radius: 25px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+#centerBoxTxt{
+    text-align: center;
+    font-size: 30px;
+    font-family: gisha;
+}
+
+#WorkCheck{
+    padding-right: 10px;
+}
+
+.main{
+    text-align: center;
+}
+
+input{
+    text-align: center;
+}
+
+.button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.arrow-right {
+  width: 0; 
+  height: 0; 
+  border-top: 104px solid transparent;
+  border-left: 104px solid white;
+transform: rotate(-90deg);
+    background-color: #41464b;
+     float: right; 
+}
+
+
+#txt{
+    text-align: center;
+    color: black;
+    font-size: 3.5em;
+    font-family: oemeodedpashutpro-regular-webfont;
+}
+
+#topTxt{
+    text-align: center;
+    font-size: 500%;
+    font-family: gisha;
+}
+
+input[type=checkbox]
+{
+  /*
+    Asaf:
+    This creates problems when aligning rows.. because it's too big and not responsive
+     - could try to use customizable checkboxes using CSS3 -
+  */
+    
+  /* Double-sized Checkboxes*/
+  /*-ms-transform: scale(3); /* IE */
+  /*-moz-transform: scale(3); /* FF */
+  /*-webkit-transform: scale(3); /* Safari and Chrome */
+  /*-o-transform: scale(3); /* Opera */
+}
+
+@font-face {
+    font-family: gisha;
+    src: url('../font/gisha.ttf');
+}
+#textColor{
+    color: #41464b;
+    float: right;
+}
+#textColor2{
+    color: #57faff;
+    float: right;
+}
+
+input[type=button]{
+    background-color: #41b4e6;
+    bottom: 0px;
+    border: 3px solid;
+    border-radius: 25px;
+    box-shadow: 1px 2px 6px #000;
+}
+.bottom{
+    background-color: #1abfdf;
+    border-top: 5px solid;
+}
+
+.float-left{
+    float:left; 
+}
+.float-right{
+    float: right;
+}
+
+
+/* Game Css */
+
+#input1{
+	max-width: 220%;
+	max-height: 220%;
+
+	
+	
+}
+
+#input2{
+
+	
+		max-width: 220%;
+	max-height: 220%;
+	
+}
+#input3{
+	
+	max-width: 220%;
+	max-height: 220%;
+
+	
+	
+}
+#input4{
+	max-width: 220%;
+	max-height: 220%;
+
+	
+}
+
+#new-cell{
+	align:center;
+
+}
+#question-area{
+	
+	font-size:20px;
+	 font-weight: bold;
+
+}
