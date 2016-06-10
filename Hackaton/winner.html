@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html>
+<html dir="rtl">
 
 <head>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -10,13 +10,20 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 </head>
 
+<!-- Hebrew -->
+<style>
+    winner-area, winner-points-area{
+        direction: rtl;
+    }
+</style>    
+
 <body>
         
         
 <header id="headerTop" class="container-fluid">
     <div class="row">
         <div class="col-md-12 text-center">
-            <h1 id="topTxt1">And the winner is...</h1>
+            <h1 dir="ltr" id="topTxt1">And the winner is...</h1>
         </div>
     </div>    
 </header>
@@ -27,19 +34,19 @@
     <div class="row"  id="centerBox">
     <span id="text"></span>
         <div class="main">
-             <header id="winner-area">
+             <div id="winner-area">
 
-            </header>
+            </div>
             <br>
-             <header id="winner-points-area">
+             <div id="winner-points-area">
 
-            </header>
+            </div>
         </div>
         </div>
     </div>
      <div class="row space"></div>
     
-    <script src="js/game.js"></script> 
+    <script src="js/getWinner.js"></script> 
 </body>
 
 <footer class="container-fluid">
