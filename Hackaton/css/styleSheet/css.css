@@ -187,6 +187,13 @@ input[type=checkbox]
   /*-o-transform: scale(3); /* Opera */
 }
 
+#question-area{
+    font-size: 32px;
+    background-color: lightgreen;
+    display:inline-block;
+    direction: rtl;
+}
+
 @font-face {
     font-family: gisha;
     src: url('../font/gisha.ttf');
@@ -217,4 +224,9 @@ input[type=button]{
 }
 .float-right{
     float: right;
+}
+
+/* used for cards, please don't delete */
+.cards{
+    width: 400px;
 }

@@ -59,7 +59,7 @@ function checkServer(){
                seconds = 0; 
 			}
 		   else // need to check if won or not
-		      window.location("winner.html");
+		      window.location ="winner.html";
 		}
     }).fail(function(data) {
             console.error("fail:" + data);
@@ -103,6 +103,9 @@ $(document).ready(function() {
         
 function onLoading()
 {
+    //check against the server if the game has ended or not
+    checkServer();
+    
 	// Populate the page with questions
     $.ajax("getQuestions.php?req=getQuestions&gameId=" + gameId).done(function(data) {
             index=0;  

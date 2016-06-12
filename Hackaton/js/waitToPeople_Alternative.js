@@ -20,7 +20,7 @@ function onInit() {
     setInterval(loop, 5000);
     
     $("#startGame").click(function() {
-       window.location.replace('page1/HtmlPage.html'); 
+       window.location.replace('game.html'); 
     });
 }
 
