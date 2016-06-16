@@ -1,7 +1,5 @@
- //var gameId = localStorage.PinCode;
- //var userId = localStorage.generalId;
- var gameId = 1000;
- var userId = 46;
+ var gameId = localStorage.PinCode;
+ var userId = localStorage.generalId;
  var winner;
 
 
@@ -19,4 +17,8 @@ $(document).ready(function(){
     }).always(function(data) {
             console.log("always:" + data);
     });
+});
+
+$("#backButton").click( function() {
+    window.location = "../../ariel25_Administration/manage_games.html"; 
 });
