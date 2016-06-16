@@ -6,10 +6,12 @@ var gameId=localStorage.PinCode; // for testing purposes (PIN GAME will be updat
 var seconds = 0; //timing of answer (timestamp)
 var timer; // hold the timer function
 var user;
+var gameTitle = localStorage.GameTitle;
 var userId = localStorage.generalId; // From registration
 // userId = 9;
 
 console.log('in gamejs: userId='+userId+" , gameId="+gameId);
+console.log('in gamejs: gameTitle='+gameTitle+" , gameId="+gameId);
 
 /* to hold the user's information from login screen (Constructor for USER)
 function User(UserId, QuestionId, Answer, Time, IsCorrectAnswer) { 	
@@ -22,7 +24,6 @@ function User(UserId, QuestionId, Answer, Time, IsCorrectAnswer) {
 */
 
 function LoadQuestion() {
-    
     //Empty question text
     $("#question-area").empty(); 
     $("#input1").empty(); 
@@ -56,7 +57,8 @@ function checkServer(){
 		   if(data[0].Status==1){ //game is active
                
                $('#myModal').modal('hide');
-               index = data[0].Question;               
+               index = data[0].Question; 
+               $("#afterAnswerModal").modal(hide);
                LoadQuestion();
                seconds = 0; 
 			} else if(data[0].Status==2) {
@@ -95,7 +97,7 @@ function setAnswer(answerUser) {
 	// updaing the database (insert and update)
 	  var result = $.ajax(s).done(function(data) {
 	  
-	  
+	 $("#afterAnswerModal").modal(show);
     }).fail(function(data) {
 	
 	//debug purposes
@@ -110,8 +112,11 @@ $(document).ready(function() {
         
 function onLoading()
 {
+    $("#topTxt").val(gameTitle);
     //check against the server if the game has ended or not
     checkServer();
+    
+    
     
 	// Populate the page with questions
     $.ajax("getQuestions.php?req=getQuestions&gameId=" + gameId).done(function(data) {
