@@ -53,13 +53,17 @@ function checkServer(){
 	  gameId = data[0].Id; 
 	  if(data[0].Question != index)
        {
-		   if(data[0].Status==0){ //game is active
+		   if(data[0].Status==1){ //game is active
+               
+               $('#myModal').modal('hide');
                index = data[0].Question;               
                LoadQuestion();
                seconds = 0; 
-			}
-		   else // need to check if won or not
-		      window.location ="winner.html";
+			} else if(data[0].Status==2) {
+                showWaitingModal();
+            } else{// need to check if won or not
+		      window.location ="winner.html";  
+            } 
 		}
     }).fail(function(data) {
             console.error("fail:" + data);
@@ -68,6 +72,9 @@ function checkServer(){
     });
 }
 
+function showWaitingModal() {
+    $('#myModal').modal('show');
+}
 
 function setAnswer(answerUser) {
     // user.Id;
