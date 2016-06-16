@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html dir="rtl">
+
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<meta charset="utf-8"/>
+<title>GAME</title>
+<link rel="stylesheet" type="text/css" href="css\styleSheet\css.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+</head>
+
+<!-- Hebrew -->
+<style>
+    winner-area, winner-points-area{
+        direction: rtl;
+    }
+</style>    
+
+<body>
+        
+        
+<header id="headerTop" class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <h1 dir="ltr" id="topTxt1">And the winner is...</h1>
+        </div>
+    </div>    
+</header>
+    <div class="row space"></div>
+    
+    
+    <div class="First winnerdiv container-fluid">
+    <div class="row"  id="centerBox">
+        
+    <span id="text"></span>
+        <div class="main">
+             <div id="winner-area">
+
+            </div>
+            <br>
+             <div id="winner-points-area">
+
+            </div>
+            <input id="backButton" type="button" value="Back"/>
+        </div>
+        </div>
+    </div>
+     <div class="row space"></div>
+    
+    <footer class="container-fluid">
+       <div class="row">
+       <div class="bottom clearfix col-md-12" >
+          <img src="img/BottomLogo.png" class="float-left clearfix" >
+            <img src="img/HandesaimArielLogo.png" class="float-right clearfix">
+        </div>
+        </div>
+    </footer> 
+    
+    <script src="js/getWinner.js"></script> 
+</body>
+
+    
+    
+</html>
