@@ -11,7 +11,7 @@ var totalUsers;
 function onInit() {
     gameId = localStorage.gameId;
     gameName = $('#gameName');
-    newUsersList = $('#users');
+    newUsersList = $('#newUsersList');
     gamePin = $('#gamePin');
     totalUsers = $('#totalUsers');
     
@@ -21,7 +21,7 @@ function onInit() {
     setInterval(loop, 5000);
     
     $("#startGame").click(function() {
-       window.location.replace('./page1/HtmlPage.html'); 
+       window.location.replace('page1/HtmlPage.html'); 
     });
 }
 
@@ -33,6 +33,7 @@ function loop( )
 function loadFromServer () {
     // LOAD DATA
     $.get( "getQuestions.php?req=getWaitingScreenData&gameId=" + gameId, function( data ) {
+        alert(gameId);
        gameData = $.parseJSON(data);
        console.log('gameData:' + gameData);
        show();
@@ -45,17 +46,12 @@ function show() {
     totalUsers.text(gameData.totalUsers);
     
     newUsersList.empty(); 
-    newUsersList.append("<tbody>\n<tr>");
     $.each(gameData.newUsers, function(i, item) {
-        if(i % 20 == 0){
-            newUsersList.append("</tr>\n<tr>");   
-        }
 		var liHTML = '';
-        liHTML += "<td class='userStyle'>" + item.NickName + "</td>";
+        liHTML += '<div class="col-xs-4 col-sm-4 col-md-4 ovalShapeJS textSizeJS">' + item.NickName + '</div>';
         newUsersList.append(liHTML);
 
     });   
-    newUsersList.append("</tr>\n</tbody>")
 }
 
 /* old function show
