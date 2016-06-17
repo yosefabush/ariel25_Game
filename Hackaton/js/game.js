@@ -1,5 +1,5 @@
 var dataQuestion; 
-var index;//index of question in dataQuestion
+var index = -1;//index of question in dataQuestion
 var flag;//interval stopper
 var gameId=localStorage.PinCode; // for testing purposes (PIN GAME will be updated here)
 // var gameId=1000;
@@ -8,6 +8,7 @@ var timer; // hold the timer function
 var user;
 var gameTitle = localStorage.GameTitle;
 var userId = localStorage.generalId; // From registration
+
 // userId = 9;
 
 console.log('in gamejs: userId='+userId+" , gameId="+gameId);
@@ -42,31 +43,31 @@ function LoadQuestion() {
 		$("#input3").val(dataQuestion[index].Answer3);
 		$("#input4").val(dataQuestion[index].Answer4); 
     }
-       
+    
     
 }
 
 function checkServer(){
     console.log('in checkServer');
-	// Check with the server wheter to advance to the next question
-     $.ajax("getGameInfo.php?req=getGameInfo&gameId=" + gameId).done(function(d) {
-      var data = JSON.parse(d);
-	  gameId = data[0].Id; 
-	  if(data[0].Question != index)
-       {
-		   if(data[0].Status==1){ //game is active
+    // Check with the server wheter to advance to the next question
+    $.ajax("getGameInfo.php?req=getGameInfo&gameId=" + gameId).done(function(d) {
+          var data = JSON.parse(d);
+          gameId = data[0].Id; 
+	  if(data[0].Question != index){
+	      if(data[0].Status==1){ //game is active
+	       
                
-               $('#myModal').modal('hide');
                index = data[0].Question; 
                $("#afterAnswerModal").modal('hide');
                LoadQuestion();
                seconds = 0; 
-			} else if(data[0].Status==2) {
+               $('#myModal').modal('hide');
+	      } else if(data[0].Status==2) {
                 showWaitingModal();
-            } else{// need to check if won or not
+              } else{// need to check if won or not
 		      window.location ="winner.html";  
-            } 
-		}
+              } 
+	  }
     }).fail(function(data) {
             console.error("fail:" + data);
     }).always(function(data) {
@@ -84,6 +85,7 @@ function setAnswer(answerUser) {
     // answerUser
     // time
     // dataQuestion[index].CorrectAnswer == answerUser
+    
     var correct;
     if(dataQuestion[index].CorrectAnswer == answerUser){
     	correct = 1;
@@ -101,6 +103,7 @@ function setAnswer(answerUser) {
     
 	// updaing the database (insert and update)
 	  var result = $.ajax(s).done(function(data) {
+	
 	 $("#afterAnswerModal").modal('show');
     }).fail(function(data) {
 	
@@ -117,16 +120,19 @@ $(document).ready(function() {
 function onLoading()
 {
     $("#topTxt").val(gameTitle);
-    //check against the server if the game has ended or not
-    checkServer();
+   
     
     
     
 	// Populate the page with questions
     $.ajax("getQuestions.php?req=getQuestions&gameId=" + gameId).done(function(data) {
-            index=0;  
+            index=-1;  
             dataQuestion = $.parseJSON(data);
-            LoadQuestion();
+           // LoadQuestion();
+            //check against the server if the game has ended or not
+            checkServer();
+            //set timer
+	    timer = setInterval(setSeconds(), 200);
             console.log("good:" + data);
     }).fail(function(data) {
             console.error("fail:" + data);
@@ -134,8 +140,7 @@ function onLoading()
             console.log("always:" + data);
     });
     
-    //set timer
-	timer = setInterval(setSeconds(), 200);
+    
 }
 
 // timer functions
