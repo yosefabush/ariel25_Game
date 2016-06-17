@@ -11,7 +11,7 @@ This file will set the user Answer
             $Answer = $_GET['Answer'];
             $Time = $_GET['Time'];
             $IsCorrectAnswer = $_GET['IsCorrectAnswer'];
-            $update = TRUE; 
+            
         
             $insert  = $db->exec("INSERT INTO users_answers (UserId,QuestionId,Answer,Time,IsCorrectAnswer) 
                 VALUES ('$UserId','$QuestionId','$Answer','$Time','$IsCorrectAnswer')");
