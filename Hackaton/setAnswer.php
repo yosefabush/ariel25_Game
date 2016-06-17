@@ -16,7 +16,7 @@ This file will set the user Answer
                 VALUES ('$UserId','$QuestionId','$Answer','$Time','$IsCorrectAnswer')");
 			
 			if( $isCorrectAnswer ) {
-				$score = 10 - $Time;
+				$score = 10;
 				if ( $score < 0 ) {
 					$score = 0;
 				}
