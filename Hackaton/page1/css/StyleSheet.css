@@ -69,7 +69,15 @@ img {
     height: 120px;
     
 }
-
+#q{
+   font-size: 32px;
+    direction: rtl;
+    text-align: center;
+    font-size: 32px;
+    position: relative;
+    display: block;
+    top: 30%;
+}
 .answers{
 	width:100%;
     
@@ -78,6 +86,10 @@ img {
 .answer{
 	width:500px;
 	height:160px;
+        color: white;
+	text-align: center;
+	font-size: 30px;
+        direction: rtl;
   
 
 }
@@ -86,8 +98,8 @@ img {
     background-image: url("../image/card2.png");
     background-size: 83% auto;
     background-repeat: no-repeat;
-    padding-top:70px;
-    padding-left: 50px;
+    padding-right: 80px;
+    padding-top: 50px;
 }
 
 
@@ -95,23 +107,23 @@ img {
     background-image: url("../image/card1.png");
     background-size: 83% auto;
     background-repeat: no-repeat;
-        padding-left: 69px;
-    padding-top: 64px;
+    padding-right: 80px;
+    padding-top: 50px;
 }
 
 .a3{
     background-image: url("../image/card4.png");
     background-size: 83% auto;
     background-repeat: no-repeat; 
-         padding-top: 57px;
-    padding-left: 30px;
+    padding-right: 80px;
+    padding-top: 35px;
 }
 .a4{
     background-image: url("../image/card3.png");
     background-size: 83% auto;
     background-repeat: no-repeat;
-      padding-left: 42px;
-    padding-top: 50px;
+    padding-right: 80px;
+    padding-top: 35px;
    
 }
 .down{
@@ -135,7 +147,7 @@ img {
 
 .footer{
     width: 100%;
-    height: 100px;
+    height: 160px;
     background-image: url("../image/newheader.png");
     border-top: solid 4px #000;
         background-size: 100% auto;
