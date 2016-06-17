@@ -5,6 +5,7 @@ var gameId=localStorage.PinCode; // for testing purposes (PIN GAME will be updat
 // var gameId=1000;
 var seconds = 0; //timing of answer (timestamp)
 var timer; // hold the timer function
+var scoreTimer;
 var user;
 var gameTitle = localStorage.GameTitle;
 var userId = localStorage.generalId; // From registration
@@ -55,7 +56,10 @@ function checkServer(){
           gameId = data[0].Id; 
 	  if(data[0].Question != index){
 	      if(data[0].Status==1){ //game is active
-	       
+	        scoreTimer = setInterval(function(){
+        		seconds += 0.2;
+        		console.log("scoreTimer:" + seconds);
+   		}, 200);
                
                index = data[0].Question; 
                $("#afterAnswerModal").modal('hide');
@@ -131,22 +135,21 @@ function onLoading()
            // LoadQuestion();
             //check against the server if the game has ended or not
             checkServer();
-            //set timer
-	    timer = setInterval(setSeconds(), 200);
+           
+	    
             console.log("good:" + data);
     }).fail(function(data) {
             console.error("fail:" + data);
     }).always(function(data) {
             console.log("always:" + data);
     });
-    
+
+  
     
 }
 
-// timer functions
-function setSeconds(){
-	seconds += 0.2;
-}
+
 
 /* check if the server changed the status of the game or moved to the next question */
-setInterval(checkServer, 5000);
+timer = setInterval(checkServer, 5000);
+
