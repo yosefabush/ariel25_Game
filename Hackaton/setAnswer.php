@@ -10,21 +10,31 @@ This file will set the user Answer
             $QuestionId = $_GET['QuestionId'];
             $Answer = $_GET['Answer'];
             $Time = $_GET['Time'];
-            $IsCorrectAnswer = $_GET['IsCorrectAnswer']; 
+            $IsCorrectAnswer = $_GET['IsCorrectAnswer'];
+            $update = TRUE; 
         
             $insert  = $db->exec("INSERT INTO users_answers (UserId,QuestionId,Answer,Time,IsCorrectAnswer) 
                 VALUES ('$UserId','$QuestionId','$Answer','$Time','$IsCorrectAnswer')");
+	   /* if($insert === FALSE){
+               $insert = $db->exec("UPDATE users_answers SET Answer = '$Answer',Time = '$Time', IsCorrectAnswer = '$IsCorrectAnswer' WHERE UserId = '$UserId' AND QuestionId = '$QuestionId' ");
+             
+            }*/	
+	
 			
-			if( $isCorrectAnswer ) {
-				$score = 10;
-				if ( $score < 0 ) {
-					$score = 0;
-				}
-				$update = $db->exec("UPDATE users SET Score = Score + $score WHERE UserId = $UserId");
+            if( $insert !== FALSE ) {
+                if( $IsCorrectAnswer==1 ) {
+			$score = 10 - $Time;
+			if ( $score < 0 ) {
+				$score = 0;
 			}
+			$update = $db->exec("UPDATE users SET Score =  Score + '$score' WHERE UserId = '$UserId' ");
 			
-            if( $insert !== FALSE & $update !== FALSE ) {
-                echo 1;
+			if( $update !== FALSE){
+			    echo 2;
+			}    
+		}else{
+		    echo 1;
+		}
             } else {
                 echo -1;
             }
