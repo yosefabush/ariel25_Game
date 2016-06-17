@@ -58,7 +58,7 @@ function checkServer(){
                
                $('#myModal').modal('hide');
                index = data[0].Question; 
-               $("#afterAnswerModal").modal(hide);
+               $("#afterAnswerModal").modal('hide');
                LoadQuestion();
                seconds = 0; 
 			} else if(data[0].Status==2) {
@@ -84,20 +84,24 @@ function setAnswer(answerUser) {
     // answerUser
     // time
     // dataQuestion[index].CorrectAnswer == answerUser
-    
+    var correct;
+    if(dataQuestion[index].CorrectAnswer == answerUser){
+    	correct = 1;
+    }else {
+    	correct = 0;
+    }
     var s = "setAnswer.php?req=setAnswer" + 
 	  "&UserId=" + localStorage.generalId + 
 	  "&QuestionId=" + dataQuestion[index].Id + 
 	  "&Answer=" + answerUser + 
 	  "&Time=" + seconds + 
-	  "&IsCorrectAnswer=" + (dataQuestion[index].CorrectAnswer == answerUser);
+	  "&IsCorrectAnswer=" + correct;
     
     console.log(s);
     
 	// updaing the database (insert and update)
 	  var result = $.ajax(s).done(function(data) {
-	  
-	 $("#afterAnswerModal").modal(show);
+	 $("#afterAnswerModal").modal('show');
     }).fail(function(data) {
 	
 	//debug purposes
