@@ -23,7 +23,7 @@ This file will set the user Answer
 			
             if( $insert !== FALSE ) {
                 if( $IsCorrectAnswer==1 ) {
-			$score = 10 - $Time;
+			$score = 20 - $Time;
 			if ( $score < 0 ) {
 				$score = 0;
 			}
