@@ -123,9 +123,7 @@ $(document).ready(function() {
         
 function onLoading()
 {
-    $("#topTxt").val(gameTitle);
-   
-    
+    $("#topTxt").html(gameTitle);
     
     
 	// Populate the page with questions

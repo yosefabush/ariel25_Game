@@ -10,6 +10,7 @@ body{
     background-size: cover;
 	background-position: center center;
 	  background-attachment: fixed;
+    height: 100%;
 
 }
 
@@ -227,6 +228,8 @@ input[type=button]{
 }
 
 /* used for cards, please don't delete */
-.cards{
-    width: 400px;
+.card{
+    width: inherit;
+    height: inherit;
+    margin: auto;
 }
