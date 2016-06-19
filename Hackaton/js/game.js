@@ -7,7 +7,7 @@ var seconds = 0; //timing of answer (timestamp)
 var timer; // hold the timer function
 var scoreTimer;
 var user;
-var gameTitle = localStorage.GameTitle;
+var gameTitle;
 var userId = localStorage.generalId; // From registration
 
 // userId = 9;
@@ -53,7 +53,9 @@ function checkServer(){
     // Check with the server wheter to advance to the next question
     $.ajax("getGameInfo.php?req=getGameInfo&gameId=" + gameId).done(function(d) {
           var data = JSON.parse(d);
-          gameId = data[0].Id; 
+          gameId = data[0].Id;
+          gameTitle = data[0].Title;
+          $("#topTxt").html(gameTitle);
 	  if(data[0].Question != index){
 	      if(data[0].Status==1){ //game is active
 	        scoreTimer = setInterval(function(){
@@ -122,9 +124,7 @@ $(document).ready(function() {
 })   ;
         
 function onLoading()
-{
-    $("#topTxt").html(gameTitle);
-    
+{   
     
 	// Populate the page with questions
     $.ajax("getQuestions.php?req=getQuestions&gameId=" + gameId).done(function(data) {

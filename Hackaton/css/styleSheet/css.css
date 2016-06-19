@@ -229,7 +229,5 @@ input[type=button]{
 
 /* used for cards, please don't delete */
 .card{
-    width: inherit;
-    height: inherit;
-    margin: auto;
+ width: 35%;
 }
