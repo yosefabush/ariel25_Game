@@ -1,5 +1,5 @@
-var gameId = 1000; 
-//insert after testing is done ? localStorage.gameId;
+var gameId = localStorage.gameId;
+
 var gameData;
 
 // dom html pointers
